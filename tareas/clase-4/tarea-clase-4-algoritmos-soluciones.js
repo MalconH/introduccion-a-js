@@ -80,6 +80,21 @@ Desafío de programación #4: Imprimí todas las tablas de multiplicación del 1
  ...
  9x9 = 81
 */
+
+// SOLUCION #4:
+function desafio4() {
+    const MULTIPLICANDO_DESDE = 1;
+    const MULTIPLICANDO_HASTA = 10; // nro izq.
+    const MULTIPLICADOR_HASTA = 15; // nro der.
+
+    for (let i = MULTIPLICANDO_DESDE; i <= MULTIPLICANDO_HASTA; i++) { // Este bucle reccorre el multiplicando del 1 al HASTA
+        for (let j = 1; j <= MULTIPLICADOR_HASTA; j++) {
+            console.log(`${i} x ${j} = ${i * j}`);
+        }
+    }
+}
+
+
 /*
 Desafío de programación #5: Calcula el resultado de la suma de los numeros del 1 al 10 en un array.
  [1,2,3,4,5,6,7,8,9,10]
