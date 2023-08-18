@@ -26,6 +26,19 @@ function desafio1() {
 
  1 3 5 ... 99
 */
+
+// SOLUCION #2:
+function desafio2() {
+    const DESDE = 0;
+    const HASTA = 100;
+
+    for (let i = DESDE; i < HASTA; i++) {
+        if (i % 2 !== 0) {
+            console.log(i);
+        }
+    }
+}
+
 /*
 Desafío de programación #3: Imprimí la tabla de multiplicación del 7
 
