@@ -101,17 +101,84 @@ Desafío de programación #5: Calcula el resultado de la suma de los numeros del
 
  1 + 2 + 3 + ... + 10 = ? //hacerlo con un array y un bucle
 */
+
+// SOLUCION #5
+function desafio5() {
+    const numeros = [];
+    let resultado = 0;
+
+    for (let i = 1; i < 11; i++) {
+        numeros.push(i);
+    }
+
+    for (let i = 0; i < numeros.length; i++) {
+        resultado += numeros[i];
+    }
+
+    console.log(resultado);
+}
+
+
 /*
 Desafío de programación #6: Calcula 10! (10 factorial)
 
  10 * 9 * 8 * ... * 1
 */
+
+// SOLUCION #6:
+function desafio6() {
+    const FACTORIAL = 10; // nro al que se le aplicará el factorial
+    let resultado = 1;
+
+    for (let i = FACTORIAL; i >= 1; i--) {
+        resultado *= i;
+    }
+
+    console.log(resultado);
+}
+
 /* Desafío de programación #7: Calcula la suma de todos los números impares mayores que 10 y menores que 30
 */
+
+// SOLUCION #7:
+function desafio7() {
+    const numeros = [];
+    let resultado = 0;
+
+    // Agrega los nros 10 < n < 30 a un array
+    for (let i = 11; i < 30; i++) {
+        numeros.push(i);
+    }
+
+    // Suma todos los nros del array
+    for (let i = 0; i < numeros.length; i++) {
+        resultado += numeros[i];
+    }
+
+    console.log(resultado);
+}
+
 /* Desafío de programación #8: Crea una función que convierta de Celsius a Fahrenheit
 */
+
+// SOLUCION #8:
+function desafio8(gradosCelsius) {
+    const gradosFarenheit = (gradosCelsius * 1.8) + 32;
+
+    console.log(gradosFarenheit);
+}
+
 /* Desafío de programación #9: Crea una función que convierta de Fahrenheit a Celsius
 */
+
+// SOLUCION #9:
+function desafio9(gradosFarenheit) {
+    const gradosCelsius = (gradosFarenheit - 32) / 1.8;
+
+    console.log(gradosCelsius);
+}
+desafio9(64);
+
 /* Desafío de programación #10: Calcula la suma de todos los números en un array de números
 */
 
