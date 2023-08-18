@@ -47,6 +47,26 @@ Desafío de programación #3: Imprimí la tabla de multiplicación del 7
  ...
  7x9 = 63
 */
+
+// SOLUCION #3:
+function desafio3() {
+    const HASTA = 10;
+
+    for (let i = 1; i <= HASTA; i++) {
+        console.log(`7 x ${i} = ${7 * i}`);
+    }
+}
+
+// SOLUCION CON CUALQUIER NRO:
+function desafio3v2() {
+    const MULTIPLICANDO = 8; // nro a multiplicar
+    const HASTA = 10;
+
+    for (let i = 1; i <= HASTA; i++) {
+        console.log(`${MULTIPLICANDO} x ${i} = ${MULTIPLICANDO * i}`);
+    }
+}
+
 /*
 Desafío de programación #4: Imprimí todas las tablas de multiplicación del 1 al 9
 
