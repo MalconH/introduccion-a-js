@@ -10,6 +10,17 @@ Desafío de programación #1: Imprimí los números del 1 al 10
 
  Resultado: 10 9 8 7 6 5 4 3 2 1
 */
+
+// SOLUCION #1:
+function desafio1() {
+    const DESDE = 1;
+    const HASTA = 10;
+
+    for (let i = DESDE; i <= HASTA; i++) {
+        console.log(i);
+    }
+}
+
 /*
  Desafìo de programación  #2: Imprimí los números impares del 1 al 100
 
