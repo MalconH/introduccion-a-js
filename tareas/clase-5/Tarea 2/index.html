@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de usuario</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <form action="" class="form" onsubmit="return false;">
+    <label for="" class="label">Nombre(s)</label>
+    <input type="text" name="nombre-usuario" id="nombre-usuario" class="input">
+
+    <label for="" class="label">Apellidos(s)</label>
+    <input type="text" name="apellido-usuario" id="apellido-usuario" class="input">
+
+    <label for="" class="label">Edad</label>
+    <input type="number" name="edad-usuario" id="edad-usuario" class="input">
+
+    <button type="submit" id="ingresar" class="button button--important">Ingresar</button>
+  </form>
+
+  <div class="bienvenido">
+    <h1 class="titulo" id="titulo"></h1>
+    <textarea name="info-usuario" id="info-usuario" cols="40" rows="5" class="textarea" disabled></textarea>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
