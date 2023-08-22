@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular salario mensual</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <form action="#" class="form">
+    <label for="salario-anual" class="label">Salario anual:</label>
+    <input type="number" name="salario-anual" id="salario-anual" class="input"
+      placeholder="Ingresa tu salario anual...">
+    <span class="error"></span>
+
+    <button type="submit" class="button button--important" id="calcular-salario-mensual">Calcular</button>
+
+    <label for="salario-mensual" class="label">Salario mensual:</label>
+    <input type="number" name="salario-mensual" id="salario-mensual" class="input" disabled>
+
+    <button type="reset" class="button">Limpiar</button>
+  </form>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
