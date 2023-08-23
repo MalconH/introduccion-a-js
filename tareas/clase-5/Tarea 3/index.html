@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Calculadora de duración de videos</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <main>
+    <form action="" class="form">
+
+
+      <section class="clases" id="clases" aria-labelledby="clases__titulo">
+        <h2 class="clases__titulo" id="clases__titulo">Clases:</h2>
+        <article class="clase" aria-labelledby="clase-1">
+          <h3 class="clase__titulo">Clase 1</h3>
+
+          <label for="horas" class="label">Horas: </label>
+          <input type="number" name="horas" class="input horas">
+
+          <label for="minutos" class="label">Minutos: </label>
+          <input type="number" name="minutos" class="input minutos">
+
+          <label for="segundos" class="label">Segundos: </label>
+          <input type="number" name="segundos" class="input segundos">
+        </article>
+      </section>
+
+      <button type="button" class="button" id="agregar-clase">Agregar clase</button>
+      <button type="button" class="button" id="quitar-clase">Quitar clase</button>
+      <button type="submit" class="button button--important" id="calcular-tiempo-total">Calcular tiempo total</button>
+      <span>Tiempo total: <strong id="resultado"></strong></span>
+    </form>
+
+    <strong class="tiempo-total" id="tiempo-total"></strong>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+
+</html>
