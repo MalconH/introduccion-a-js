@@ -195,6 +195,17 @@ function sumarNumeros(numeros) {
 /* Desafío de programación #11: Calcula el promedio de todos los números en un array de números. (en una función)
 */
 
+// SOLUCION #11:
+function calcularPromedio(numeros) {
+    let total = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        total += numeros[i];
+    }
+
+    return total / numeros.length;
+}
+
 /* Desafío de programación #12: Crea una función que reciba un array de números y devuelva un array conteniendo solo los números positivos
 */
 
