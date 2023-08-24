@@ -177,10 +177,20 @@ function desafio9(gradosFarenheit) {
 
     console.log(gradosCelsius);
 }
-desafio9(64);
 
 /* Desafío de programación #10: Calcula la suma de todos los números en un array de números
 */
+
+// SOLUCION #10:
+function sumarNumeros(numeros) {
+    let total = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        total += numeros[i];
+    }
+
+    return total;
+}
 
 /* Desafío de programación #11: Calcula el promedio de todos los números en un array de números. (en una función)
 */
