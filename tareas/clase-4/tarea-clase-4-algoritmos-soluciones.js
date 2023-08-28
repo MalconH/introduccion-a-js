@@ -63,7 +63,9 @@ function desafio3v2() {
     const HASTA = 10;
 
     for (let i = 1; i <= HASTA; i++) {
-        console.log(`${MULTIPLICANDO} x ${i} = ${MULTIPLICANDO * i}`);
+        console.log(
+            `${MULTIPLICANDO} x ${i} = ${MULTIPLICANDO * i}`
+        );
     }
 }
 
@@ -87,13 +89,17 @@ function desafio4() {
     const MULTIPLICANDO_HASTA = 10; // nro izq.
     const MULTIPLICADOR_HASTA = 15; // nro der.
 
-    for (let i = MULTIPLICANDO_DESDE; i <= MULTIPLICANDO_HASTA; i++) { // Este bucle reccorre el multiplicando del 1 al HASTA
+    for (
+        let i = MULTIPLICANDO_DESDE;
+        i <= MULTIPLICANDO_HASTA;
+        i++
+    ) {
+        // Este bucle reccorre el multiplicando del 1 al HASTA
         for (let j = 1; j <= MULTIPLICADOR_HASTA; j++) {
             console.log(`${i} x ${j} = ${i * j}`);
         }
     }
 }
-
 
 /*
 Desafío de programación #5: Calcula el resultado de la suma de los numeros del 1 al 10 en un array.
@@ -117,7 +123,6 @@ function desafio5() {
 
     console.log(resultado);
 }
-
 
 /*
 Desafío de programación #6: Calcula 10! (10 factorial)
@@ -163,7 +168,7 @@ function desafio7() {
 
 // SOLUCION #8:
 function desafio8(gradosCelsius) {
-    const gradosFarenheit = (gradosCelsius * 1.8) + 32;
+    const gradosFarenheit = gradosCelsius * 1.8 + 32;
 
     console.log(gradosFarenheit);
 }
@@ -209,8 +214,36 @@ function calcularPromedio(numeros) {
 /* Desafío de programación #12: Crea una función que reciba un array de números y devuelva un array conteniendo solo los números positivos
 */
 
+// SOLUCION #12:
+function dameNumerosPositivos(numeros, incluyeCeros = false) {
+    const numerosPositivos = [];
+
+    if (!incluyeCeros) {
+        for (let i = 0; i < numeros.length; i++) {
+            numeros[i] > 0 ? numerosPositivos.push(numeros[i]) : "";
+        }
+    } else {
+        for (let i = 0; i < numeros.length; i++) {
+            numeros[i] >= 0 ? numerosPositivos.push(numeros[i]) : "";
+        }
+    }
+
+    return numerosPositivos;
+}
+
 /* Desafío de programación #13: Find the maximum number in an array of numbers
 */
+
+// SOLUCION #13:
+function dameMayor(numeros) {
+    let numeroMayor = numeros[0];
+
+    for (let i = 0; i < numeros.length; i++) {
+        numeros[i] > numeroMayor ? (numeroMayor = numeros[i]) : "";
+    }
+
+    return numeroMayor;
+}
 
 /* Desafío de programación #14: Imprimir los primeros 10 dígitos de Fibonacci sin recursión
 
@@ -218,11 +251,52 @@ Fibonacci (lo buscan en google si no lo saben o no se acuerdan)
 El resultado debería ser: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
 */
 
+// SOLUCION #14:
+function dameNumerosFibonacci(cantidad) {
+    const fibonacci = [0, 1];
+    let numeroAnterior = 0;
+    let numeroSiguiente = 1;
+
+    for (let i = 1; i < cantidad; i++) {
+        numeroSiguiente = fibonacci[i] + numeroAnterior;
+        fibonacci.push(numeroSiguiente);
+        numeroAnterior = fibonacci[i];
+    }
+
+    return fibonacci;
+}
+
 /* Desafío de programación #15: Crear una función que encuentre el número n de Fibonacci usando recursión
 */
 
+// SOLUCION #15
+function numeroFibonacci(posicion) {
+    if (posicion < 0)
+        return null;
+
+    if (posicion === 0)
+        return 0;
+
+    if (posicion === 1)
+        return 1;
+
+    return numeroFibonacci(posicion - 1) + numeroFibonacci(posicion - 2);
+}
+
 /* Desafío de programación #16: Crear una función que dado un número retorne un Boolean (true/false) dependiendo si es primo o no.
 */
+
+// SOLUCION #16
+function esPrimo(numero) {
+    let divisores = 0;
+
+    for (let i = numero; i > 0; i--) {
+        if (numero % i === 0)
+            divisores++;
+    }
+
+    return (divisores === 2)
+}
 
 /* Desafío de programación #17: Calcular la suma de los dígitos positivos de un número entero positivo
 Ejemplo:
@@ -231,13 +305,47 @@ Ejemplo:
    1234 = 1 + 2 + 3 + 4 = 10
 */
 
+// SOLUCION #17
+function sumarDigitos(numeroPositivo) {
+    const digitos = String(numeroPositivo).split("");
+    let sumaTotal = 0;
+
+    for (let i = 0; i < digitos.length; i++) {
+        sumaTotal += Number(digitos[i]);
+    }
+
+    return sumaTotal;
+}
+
 /* Desafío de programación #18: Imprimir los primeros 100 números primos
 */
+
+// SOLUCION #18
+function imprimirNumerosPrimos(cantidad) {
+    for (let i = 0; i <= cantidad; i++) {
+        if (esPrimo(i))
+            console.log(i);
+    }
+}
+
+// imprimirNumerosPrimos(100);
 
 /* Desafío de programación #19: Crear una función que retorne un array con los primeros números "n-primos" mayores que un número particular definido "alComienzo"
 Ejemplo:
   Quiero los primeros 4 números primos mayores que 5, el resultado debería ser: [7,11,13,17,19]
 */
+
+// SOLUCION #19
+function dameNumerosPrimos(desde, cantidad) {
+    const numerosPrimos = [];
+
+    for (let i = desde; numerosPrimos.length < cantidad; i++) {
+        if (esPrimo(i))
+            numerosPrimos.push(i);
+    }
+
+    return numerosPrimos;
+}
 
 /* Desafío de programación #20: Rotar un array hacia la izquierda una posición
 Ejemplo:
@@ -246,11 +354,25 @@ Ejemplo:
   [4,3,2,1] debería quedar como [3,2,1,4]
 */
 
+// SOLUCION #20
+function rotarUnaPosicionALaIzquierda(array) {
+    array.push(array.shift());
+
+    return array;
+}
+
 /* Desafío de programación #21: Rotar un array a la derecha una posición
 Ejemplo:
   [2,3,4,1] debería quedar como [1,2,3,4]
   [2,3] debería quedar como [3,2]
 */
+
+// SOLUCION #21
+function rotarUnaPosicionALaDerecha(array) {
+    array.unshift(array.pop());
+
+    return array;
+}
 
 /* Desafío de programación #22: Invertir un array
 Ejemplo:
@@ -259,16 +381,44 @@ Ejemplo:
   [5,6,3] debería quedar como [3,6,5]
 */
 
+// SOLUCION #22
+function invertir(array) {
+    const arrayInvertido = []
+
+    // Otra solución que no usa métodos de los Array pero no es tan "limpia"
+    /* for (let i = 0, j = array.length - 1; i < array.length; i++, j--) {
+        nuevoArray[i] = array[j];
+    } */
+
+    for (let i = 0; i < array.length; i++) {
+        arrayInvertido.unshift(array[i])
+    }
+
+    return arrayInvertido;
+}
+
 /* Desafío de programación #23: Invertir una cadena de caracteres
 Ejemplo:
   "dabale arroz a la zorra el abad" debería quedar como "daba le arroz al a zorra elabad"
   "bienvenido" debería quedar como "odinevneib"
 */
 
+// SOLUCION #23
+function invertirString(string) {
+    return invertir(string).join("");
+}
+
 /* Desafío de programación #24: Crear una función que reciba dos dos arrays (arreglos) como argumentos y returne el resultado en un nuevo arreglo
 Ejemplo:
   [1,2,3] con ["a","b","c"] debería quedar como [1,2,3,"a","b","c"]
 */
+function unir(array1, array2) {
+    for (let i = 0; i < array2.length; i++) {
+        array1.push(array2[i]);
+    }
+
+    return array1;
+}
 
 /* Desafío de programación #25: Crear una función que reciba dos arrays (arreglos) de números como argumentos y retorne un array con números que estén en uno u otro array, pero NO en ambos.
 Nota: Esto se llama "diferencia simétrica" entre conjuntos
