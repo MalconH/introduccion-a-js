@@ -1,0 +1,9 @@
+.clase {
+  padding: 1rem;
+  border: solid 1px black;
+  margin-bottom: 2rem;
+}
+
+.clase__titulo {
+  margin: 0;
+}
