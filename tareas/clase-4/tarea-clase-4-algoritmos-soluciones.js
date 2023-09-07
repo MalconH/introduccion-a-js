@@ -424,11 +424,26 @@ function unir(array1, array2) {
 Nota: Esto se llama "diferencia simétrica" entre conjuntos
 */
 
-/* Desafío de programación #25: Crear una función que reciba dos arrays (arreglos) de números como argumentos y retorne un array con números que estén en uno u otro array, pero NO en ambos.
-Ejemplo:
-  [1,2,3] y [3,7,11] debería devolver [1,2,7,11]
-  [5,10,3] y [10,1] debería quedar como [5,3,1]
-*/
+// SOLUCION #25:
+function calcularDiferenciaSimetrica(numeros1 = [1, 1, 2, 3, 4, 9, 8, 15], numeros2 = [1, 12, 14, 15, 2, 5, 6, 7, 8]) {
+    const resultadoDiferenciaSimetrica = [];
+
+    for (let i = 0; i < numeros1.length; i++) {
+        if (!numeros2.includes(numeros1[i])) {
+            resultadoDiferenciaSimetrica.push(numeros1[i]);
+        }
+    }
+
+    for (let i = 0; i < numeros2.length; i++) {
+        if (!numeros1.includes(numeros2[i])) {
+            resultadoDiferenciaSimetrica.push(numeros2[i]);
+        }
+    }
+
+    return resultadoDiferenciaSimetrica.sort(function (a, b) {
+        return a - b;
+    });
+}
 
 /* Desafío de programación #26: Crear una función que reciba dos arrays de números y retorne un nuevo array con los elementos que se encuentren en el primer array, pero no en el segundo
 Nota; Esto se llama "resta" entre conjuntos
@@ -436,10 +451,44 @@ Ejemplo:
   [5,1,2,3,4] y [3,4] debería devolver [5,1,2]
 */
 
+// SOLUCION #26
+function calcularRestaEntreConjuntos(numeros1, numeros2) {
+    const resultadoRestaEntreConjuntos = [];
+
+    for (let i = 0; i < numeros1.length; i++) {
+        if (!numeros2.includes(numeros1[i])) {
+            resultadoRestaEntreConjuntos.push(numeros1[i]);
+        }
+    }
+
+    return resultadoRestaEntreConjuntos;
+}
+
 /* Desafío de programación #27: Crear una función que reciba un array de números como argumento y retorne un array con los elementos distintos
 Ejemplo:
    [1,2,3,4,5,4,3,2,1,0] debería retornar [1,2,3,4,5,0]
 */
+
+// SOLUCION #27
+function eliminarRepetidos(numeros) {
+    const resultadoNumeros = [];
+
+    for (let i = 0; i < numeros.length; i++) {
+        let contadorRepeticiones = -1;
+
+        for (let j = 0; j < numeros.length; j++) {
+            if (numeros[i] === numeros[j]) {
+                contadorRepeticiones++;
+            }
+        }
+
+        if (!contadorRepeticiones) {
+            resultadoNumeros.push(numeros[i]);
+        }
+    }
+
+    return resultadoNumeros;
+}
 
 // ==== FALTAN TRADUCIR
 
