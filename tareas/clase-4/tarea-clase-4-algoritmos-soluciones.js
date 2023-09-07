@@ -295,7 +295,7 @@ function esPrimo(numero) {
             divisores++;
     }
 
-    return (divisores === 2)
+    return (divisores === 2);
 }
 
 /* Desafío de programación #17: Calcular la suma de los dígitos positivos de un número entero positivo
@@ -383,7 +383,7 @@ Ejemplo:
 
 // SOLUCION #22
 function invertir(array) {
-    const arrayInvertido = []
+    const arrayInvertido = [];
 
     // Otra solución que no usa métodos de los Array pero no es tan "limpia"
     /* for (let i = 0, j = array.length - 1; i < array.length; i++, j--) {
@@ -391,7 +391,7 @@ function invertir(array) {
     } */
 
     for (let i = 0; i < array.length; i++) {
-        arrayInvertido.unshift(array[i])
+        arrayInvertido.unshift(array[i]);
     }
 
     return arrayInvertido;
