@@ -495,11 +495,59 @@ function eliminarRepetidos(numeros) {
 /* Desafío de programación #28: Calculate the sum of first 100 prime numbers
 */
 
+// SOLUCION #28
+function sumarNumerosPrimos(cantidad) {
+    const numerosPrimos = [];
+    let sumaTotal = 0;
+
+    for (let numero = 0; numerosPrimos.length < cantidad; numero++) {
+        let divisores = 0;
+        for (let j = numero; j > 0; j--) {
+            if (numero % j === 0) divisores++;
+        }
+
+        if (divisores === 2) {
+            numerosPrimos.push(numero);
+            sumaTotal += numero;
+        }
+    }
+
+    return sumaTotal;
+}
+
 /* Desafío de programación #29: Print the distance between the first 100 prime numbers
 */
 
+// SOLUCION #29 - La distancia entiendo que sería cuántos nros hay entre nro primo(n1) y nro primo (n2)
+
+function dameDistanciaEntrePrimos(cantidad) {
+    const distanciaEntrePrimos = [];
+    let numeroPrimoAnterior = 2; // 2 es el primer nro primo
+    let numerosPrimosEncontrados = 0;
+
+    for (let i = 0; numerosPrimosEncontrados < cantidad; i++) {
+        let divisores = 0;
+
+        for (let j = i; j > 0; j--) {
+            if (i % j === 0) divisores++;
+        }
+
+        if (divisores === 2) {
+            numerosPrimosEncontrados++;
+            distanciaEntrePrimos.push(i - numeroPrimoAnterior);
+            numeroPrimoAnterior = i;
+        }
+    }
+
+    return distanciaEntrePrimos;
+}
+
 /* Desafío de programación #30-a: Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
 */
+
+function sumarStrings(numero1, numero2) {
+    return String(Number(numero1) + Number(numero2));
+}
 
 /* Desafío de programación #30-b: Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
 */
