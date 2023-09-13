@@ -148,21 +148,10 @@ function resetear() {
     ocultarResultados();
 }
 
-/*
-TAREA:
-Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels 
-para completar el salario anual de cada integrante de la familia que trabaje.
-Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario anual, 
-menor salario anual, salario anual promedio y salario mensual promedio.
-
-Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
-*/
-
 document.querySelector("#calcular").onclick = function () {
     const $edadesIntegrantes = document.querySelectorAll(".edad-integrante");
     const $salariosIntegrantes = document.querySelectorAll(".salario-integrante");
     const edadesIntegrantes = [];
-    const salariosIntegrantes = [];
 
     $edadesIntegrantes.forEach(function ($edadIntegrante) {
         // Cada integrante tiene una id "edad-integrante-n", por eso selecciono el ultimo elemento
@@ -177,16 +166,9 @@ document.querySelector("#calcular").onclick = function () {
         }
     });
 
-    $salariosIntegrantes.forEach(function ($salarioIntegrante) {
-    });
-
     document.querySelector("#edad-mayor").textContent = dameMayor(edadesIntegrantes);
     document.querySelector("#edad-menor").textContent = dameMenor(edadesIntegrantes);
     document.querySelector("#edad-promedio").textContent = damePromedio(edadesIntegrantes);
-    document.querySelector("#salario-anual-mayor").textContent = dameMayor(salarioIntegrantes);
-    document.querySelector("#salario-anual-menor").textContent = dameMenor(salarioIntegrantes);
-    document.querySelector("#salario-anual-promedio").textContent = damePromedio(salarioIntegrantes);
-    document.querySelector("#salario-mensual-promedio").textContent = damePromedioMensual(salarioIntegrantes);
     mostrarResultados();
 
     return false;
@@ -211,60 +193,10 @@ function crearIntegrante(indice) {
     $input.className = "input edad-integrante";
     $input.placeholder = "25...";
 
-    const $label2 = document.createElement("label");
-    $label2.className = "label";
-    $label2.htmlFor = `integrante-trabaja-${indice + 1}`;
-    $label2.textContent = "Tiene trabajo";
-
-    const $inputChkbox = document.createElement("input");
-    $inputChkbox.type = "checkbox";
-    $inputChkbox.id = `integrante-trabaja-${indice + 1}`;
-    $inputChkbox.className = "input integrante-trabaja";
-
-    $inputChkbox.onclick = function () {
-        generarSalarioIntegrante($inputChkbox);
-        mostrarIngresarSalario($inputChkbox);
-    };
-
     $div.appendChild($h3);
     $div.appendChild($label);
     $div.appendChild($input);
-    $div.appendChild($label2);
-    $div.appendChild($inputChkbox);
 
     const $contenedorIntegrantes = document.querySelector(".integrantes");
     $contenedorIntegrantes.appendChild($div);
-}
-
-function mostrarIngresarSalario(nodoActual) {
-    const $contenedorIngresarSalario = nodoActual.nextElementSibling;
-    $contenedorIngresarSalario.lastElementChild.value = "";
-    $contenedorIngresarSalario.classList.toggle("hidden");
-}
-
-function generarSalarioIntegrante(nodoActual) {
-    if (!nodoActual.nextElementSibling) {
-
-        const $nodoPadre = nodoActual.parentNode;
-
-        const $div = document.createElement("div");
-        $div.className = "ingresar-salario hidden";
-
-        const $label = document.createElement("label");
-        $label.className = "label";
-        $label.textContent = "Salario anual";
-
-        const $input = document.createElement("input");
-        $input.type = "number";
-        $input.className = "input salario-integrante";
-        $input.placeholder = "Ingresa el salario anual...";
-
-        $div.appendChild($label);
-        $div.appendChild($input);
-        $nodoPadre.appendChild($div);
-    }
-}
-
-function damePromedioMensual(numerosAnuales) {
-    return (damePromedio(numerosAnuales) / 12);
 }
