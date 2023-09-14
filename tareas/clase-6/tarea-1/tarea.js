@@ -152,6 +152,7 @@ document.querySelector("#calcular").onclick = function () {
     const $edadesIntegrantes = document.querySelectorAll(".edad-integrante");
     const $salariosIntegrantes = document.querySelectorAll(".salario-integrante");
     const edadesIntegrantes = [];
+    let contadorErrores = 0;
 
     for (let i = 0; i < $edadesIntegrantes.length; i++) {
         const edad = Number($edadesIntegrantes[i].value);
@@ -159,10 +160,15 @@ document.querySelector("#calcular").onclick = function () {
 
         if (error) {
             console.log(`Integrante #${i + 1}: ${error}`);
-            return false;
+            contadorErrores++;
+            continue;
         }
 
         edadesIntegrantes.push(edad);
+    }
+
+    if (contadorErrores) {
+        return false;
     }
 
     document.querySelector("#edad-mayor").textContent = dameMayor(edadesIntegrantes);
