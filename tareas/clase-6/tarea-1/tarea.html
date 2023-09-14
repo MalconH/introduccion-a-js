@@ -5,38 +5,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de edades</title>
-  <link rel="stylesheet" href="tarea.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-  <h1 class="title">Hola! Vamos a hacer algunos cálculos!</h1>
-  <form action="#" class="form">
-    <p class="paragraph">Primero que nada, decinnos cuánta gente vive en tu casa:</p>
-    <input type="number" class="input" id="cantidad-integrantes" placeholder="Integrantes en tu casa..."
-      aria-label="Cantidad de integrantes">
-    <button type="submit" class="button button--important" id="enviar-cantidad-integrantes">Enviar</button>
-  </form>
 
-  <form action="#" class="form" id="form-integrantes">
-    <div class="integrantes"></div>
+  <!-- 
+    container
+      row
+        col input integrantes - calcular?
+        col integrantes
+      row
+        col resultados
+        
+  -->
 
-    <div class="controles hidden">
-      <button type="submit" class="button button--important" id="calcular">Calcular</button>
-      <button type="button" class="button" id="borrar">Borrar todo</button>
-    </div>
-  </form>
+  <main class="container pb-5">
+    <h1 class="text-primary mt-4">Hola! Vamos a hacer algunos cálculos!</h1>
+    <form action="#" class="form">
 
-  <div class="resultados hidden">
-    <p class="resultado">Edad mayor: </p>
-    <p class="resultado" id="edad-mayor"></p>
 
-    <p class="resultado">Edad menor: </p>
-    <p class="resultado" id="edad-menor"></p>
+      <div class="row mt-5">
+        <div class="col-12">
+          <p class="paragraph">Primero que nada, decinnos cuánta gente vive en tu casa:</p>
+          <div class="row">
+            <div class="col-auto flex-fill">
+              <input type="number" class="form-control" id="cantidad-integrantes"
+                placeholder="Integrantes en tu casa..." aria-label="Cantidad de integrantes">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-outline-primary" id="enviar-cantidad-integrantes">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 gx-5">
+        <div class="col-sm-6 justify-content-center">
+          <div class="integrantes"></div>
+          <div class="controles d-none">
+            <button type="submit" class="btn btn-primary" id="calcular">Calcular</button>
+            <button type="button" class="btn btn-outline-secondary" id="borrar">Borrar todo</button>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="resultados d-none">
+            <h3 class="resultado fs-5 text-secondary">Edad mayor: </h3>
+            <p class="resultado mb-4" id="edad-mayor"></p>
 
-    <p class="resultado">Edad promedio: </p>
-    <p class="resultado" id="edad-promedio"></p>
-  </div>
+            <h3 class="resultado fs-5 text-secondary">Edad menor: </h3>
+            <p class="resultado mb-4" id="edad-menor"></p>
+
+            <h3 class="resultado fs-5 text-secondary">Edad promedio: </h3>
+            <p class="resultado mb-4" id="edad-promedio"></p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
   <script src="tarea.js"></script>
+  <script src="calculos.js"></script>
 </body>
 
 </html>

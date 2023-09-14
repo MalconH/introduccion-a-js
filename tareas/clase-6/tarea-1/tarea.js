@@ -47,11 +47,11 @@ function borrarIntegrantesAnteriores() {
 
 function mostrarControles() {
     const $divControles = document.querySelector(".controles");
-    $divControles.classList.remove("hidden");
+    $divControles.classList.remove("d-none");
 }
 function ocultarControles() {
     const $divControles = document.querySelector(".controles");
-    $divControles.classList.add("hidden");
+    $divControles.classList.add("d-none");
 }
 
 function validarIntegrantesIngresados(integrantesIngresados) {
@@ -135,11 +135,11 @@ function damePromedio(numeros) {
 }
 
 function mostrarResultados() {
-    document.querySelector(".resultados").classList.remove("hidden");
+    document.querySelector(".resultados").classList.remove("d-none");
 }
 
 function ocultarResultados() {
-    document.querySelector(".resultados").classList.add("hidden");
+    document.querySelector(".resultados").classList.add("d-none");
 }
 
 function resetear() {
@@ -181,21 +181,21 @@ document.querySelector("#calcular").onclick = function () {
 
 function crearIntegrante(indice) {
     const $div = document.createElement("div");
-    $div.className = "integrante";
+    $div.className = "integrante shadow mb-4 p-3 pb-4 rounded";
 
     const $h3 = document.createElement("h3");
-    $h3.className = "h3";
+    $h3.className = "text-secondary h4";
     $h3.textContent = `Integrante #${indice + 1}:`;
 
     const $label = document.createElement("label");
-    $label.className = "label";
+    $label.className = "form-label";
     $label.htmlFor = `edad-integrante-${indice + 1}`;
     $label.textContent = "Edad: ";
 
     const $input = document.createElement("input");
     $input.type = "number";
     $input.id = `edad-integrante-${indice + 1}`;
-    $input.className = "input edad-integrante";
+    $input.className = "form-control edad-integrante";
     $input.placeholder = "25...";
 
     $div.appendChild($h3);
@@ -205,3 +205,5 @@ function crearIntegrante(indice) {
     const $contenedorIntegrantes = document.querySelector(".integrantes");
     $contenedorIntegrantes.appendChild($div);
 }
+
+crearIntegrantes(3);
