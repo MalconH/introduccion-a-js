@@ -153,18 +153,17 @@ document.querySelector("#calcular").onclick = function () {
     const $salariosIntegrantes = document.querySelectorAll(".salario-integrante");
     const edadesIntegrantes = [];
 
-    $edadesIntegrantes.forEach(function ($edadIntegrante) {
-        // Cada integrante tiene una id "edad-integrante-n", por eso selecciono el ultimo elemento
-        const numeroIntegrante = $edadIntegrante.id.split("-").pop();
-        const edadIntegrante = $edadIntegrante.value;
-        const errorEdadIntegrante = validarEdad(edadIntegrante);
+    for (let i = 0; i < $edadesIntegrantes.length; i++) {
+        const edad = Number($edadesIntegrantes[i].value);
+        const error = validarEdad(edad);
 
-        if (errorEdadIntegrante) {
-            console.log(`Para el integrante #${numeroIntegrante}, ${errorEdadIntegrante}`);
-        } else {
-            edadesIntegrantes.push(edadIntegrante);
+        if (error) {
+            console.log(`Integrante #${i}: ${error}`);
+            return false;
         }
-    });
+
+        edadesIntegrantes.push(edad);
+    }
 
     document.querySelector("#edad-mayor").textContent = dameMayor(edadesIntegrantes);
     document.querySelector("#edad-menor").textContent = dameMenor(edadesIntegrantes);
