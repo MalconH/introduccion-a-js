@@ -205,5 +205,3 @@ function crearIntegrante(indice) {
     const $contenedorIntegrantes = document.querySelector(".integrantes");
     $contenedorIntegrantes.appendChild($div);
 }
-
-crearIntegrantes(3);

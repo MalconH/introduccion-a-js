@@ -5,41 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculador de salarios</title>
-  <link rel="stylesheet" href="tarea-2.css">
+  <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-  <h1 class="title">Hola! Vamos a hacer algunos cálculos!</h1>
-  <form action="" class="form">
-    <div class="agregar-quitar">
-      <button type="button" id="agregar">Agregar integrante</button>
-      <button type="button" id="quitar">Quitar integrante</button>
-    </div>
+  <main class="container py-4">
+    <h1 class="text-primary text-center p-2">Hola! Vamos a hacer algunos cálculos!</h1>
+    <form action="" class="form container-fluid">
 
-    <div class="integrantes"></div>
+      <div class="row gx-5 mt-4">
+        <div class="col-sm-8 mb-4">
+          <div class="integrantes row gy-4"></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="row gx-2 gy-2 mb-2">
+            <button type="button" class="btn btn-primary" id="agregar">Agregar integrante</button>
+            <button type="button" class="btn btn-outline-secondary" id="quitar">Quitar integrante</button>
+          </div>
 
-    <div class="controles">
-      <button type="button" id="calcular">Calcular</button>
-      <button type="reset" id="reset">Resetear</button>
-    </div>
+          <div class="controles row d-none gx-2 gy-2 mb-2">
+            <button type="button" class="btn btn-primary" id="calcular">Calcular</button>
+            <button type="reset" class="btn btn-outline-danger" id="reset">Resetear</button>
+          </div>
+          <div class="resultados d-none">
+            <h3 class="fs-5 text-secondary">Salario anual mayor: </h3>
+            <p id="salario-mayor"></p>
 
-    <div class="resultados hidden">
-      <p>Salario anual mayor: </p>
-      <p id="salario-mayor"></p>
+            <h3 class="fs-5 text-secondary">Salario anual menor: </h3>
+            <p id="salario-menor"></p>
 
-      <p>Salario anual menor: </p>
-      <p id="salario-menor"></p>
+            <h3 class="fs-5 text-secondary">Salario anual promedio: </h3>
+            <p id="salario-promedio-anual"></p>
 
-      <p>Salario anual promedio: </p>
-      <p id="salario-promedio-anual"></p>
+            <h3 class="fs-5 text-secondary">Salario mensual promedio: </h3>
+            <p id="salario-promedio-mensual"></p>
+          </div>
+        </div>
 
-      <p>Salario mensual promedio: </p>
-      <p id="salario-promedio-mensual"></p>
-    </div>
-  </form>
-  <script src="calculos.js"></script>
-  <script src="validaciones.js"></script>
-  <script src="tarea-2.js"></script>
+      </div>
+    </form>
+  </main>
+  <script type="text/javascript" src="calculos.js"></script>
+  <script type="text/javascript" src="validaciones.js"></script>
+  <script type="text/javascript" src="tarea-2.js"></script>
 </body>
 
 </html>
