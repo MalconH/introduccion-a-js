@@ -158,7 +158,7 @@ document.querySelector("#calcular").onclick = function () {
         const error = validarEdad(edad);
 
         if (error) {
-            console.log(`Integrante #${i}: ${error}`);
+            console.log(`Integrante #${i + 1}: ${error}`);
             return false;
         }
 
