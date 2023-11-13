@@ -73,12 +73,14 @@ function agregarIntegrante(indice) {
     const $labelSalario = document.createElement("label");
     $labelSalario.textContent = `Salario del integrante #${indice}`;
     $labelSalario.htmlFor = `salario-${indice}`;
+    $labelSalario.className = "form-label";
 
     const $inputSalario = document.createElement("input");
     $inputSalario.type = "number";
     $inputSalario.id = `salario-${indice}`;
     $inputSalario.name = `salario-${indice}`;
     $inputSalario.placeholder = "25.000";
+    $inputSalario.className = "form-control";
 
     $integrante.appendChild($labelSalario);
     $integrante.appendChild($inputSalario);
@@ -95,20 +97,20 @@ function quitarUltimoIntegrante() {
 }
 
 function mostrarControles() {
-    document.querySelector(".controles").classList.remove("hidden");
+    document.querySelector(".controles").classList.remove("d-none");
 }
 
 function ocultarControles() {
-    document.querySelector(".controles").classList.add("hidden");
+    document.querySelector(".controles").classList.add("d-none");
 }
 
 function mostrarResultados() {
-    document.querySelector(".resultados").classList.remove("hidden");
+    document.querySelector(".resultados").classList.remove("d-none");
 }
 
 function ocultarResultados() {
     const $resultados = document.querySelector(".resultados");
-    $resultados.classList.add("hidden");
+    $resultados.classList.add("d-none");
     $resultados.innerHTML = "";
 }
 
@@ -140,12 +142,12 @@ function validarSalario(salario) {
 function manejarError(error, indice) {
     const $input = document.querySelector(`#salario-${indice + 1}`);
 
-    if (!$input.classList.contains("error")) {
-        $input.classList.add("error");
+    if (!$input.classList.contains("is-invalid")) {
+        $input.classList.add("is-invalid");
 
         const $infoError = document.createElement("span");
         $infoError.textContent = error;
-        $infoError.className = "error";
+        $infoError.className = "invalid-feedback";
 
         $input.parentElement.appendChild($infoError);
     }
@@ -153,7 +155,7 @@ function manejarError(error, indice) {
 
 function borrarError(indice) {
     const $input = document.querySelector(`#salario-${indice + 1}`);
-    $input.classList.remove("error");
+    $input.classList.remove("is-invalid");
 
     if ($input.nextElementSibling) {
         $input.nextElementSibling.remove();
